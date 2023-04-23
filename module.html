@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module</title>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F5F5F5;
+            color: #1f1f1f;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .row {
+            --bs-gutter-x: .5rem;
+        }
+
+        h3.general {
+            font-size: 24px;
+            line-height: 29px;
+            padding-left: 10px;
+            padding-top: 20px;
+        }
+
+        h4 {
+            font-size: 22px;
+            line-height: 29px;
+            font-weight: 600;
+          
+            margin-bottom: 0;
+
+        }
+
+        .myBtn {
+            color: #ffffff;
+            font-size: 18px;
+            width: 290px;
+            height: 54px;
+            line-height: 22px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            border-width: 1px;
+            border-radius: 8px;
+            background-color: #de210b;
+            background-position: center center;
+            border-color: #de210b;
+            border-style: solid;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        }
+
+        .myBtn:hover {
+            background-color: #ffffff;
+            color: #de210b;
+        }
+/* стрелки инпутов начало */
+        .form-control {
+            border: 1px solid #ffffff;
+            box-shadow: 0px 8px 16px rgba(28, 28, 28, 0.12);
+            padding: 14px;
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            border-radius:12px;
+        }
+        
+        .form-control::-ms-expand{
+            display: none;
+        }
+         .selectWrap{
+            position: relative;
+        }
+        .selectWrap:after{
+            content:"";
+            position: absolute;
+            top: 60%;
+            right: 15px;
+            transform: translateY(-50%);
+            display: block;
+            width: 10px;
+            height: 10px;
+            
+            pointer-events: none;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0 4px 4px 4px;
+            border-color: transparent transparent #9F9F9F transparent;
+            transform: rotate(180deg);
+        }
+/* стрелки конец */
+
+        .form_label {
+            font-size: 12px;
+            line-height: 9px;
+            font-weight: 400;
+            padding-bottom: 10px;
+            color: #9F9F9F;
+        }
+       
+        .myInput{
+            border: 1px solid #ffffff;
+            box-shadow: 0px 8px 16px rgba(28, 28, 28, 0.12);
+            padding: 9px 16px;
+            width: 100%;
+        }
+
+
+
+        /* .form-check-input[type=checkbox] {
+          
+            border:1px solid #ffffff;
+        } */
+        input[type=date] {
+            border: 1px solid #ffffff;
+            padding: 26px;
+            border-radius: 4px;
+            width: 290px;
+            box-shadow: 0px 8px 16px rgba(28, 28, 28, 0.12);
+            margin-top: 0;
+            border-radius:12px;
+        }
+        /* .myForm-check .form-check-input{
+            border:1px solid #de210b;
+        }
+        .myForm-check .form-check-input:checked{
+            background-color: #de210b;
+            border-color: #de210b;
+        }
+        */
+
+        .myInput{
+            box-shadow: 0 0 0;
+            width: 2em;
+            height: 2em;
+            margin-top: 0.25em;
+            vertical-align: center;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 2px solid #de210b;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        .myContainer {
+            padding-left: 10px;
+        }
+
+        .myCard {
+            background-color: #ececec;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .myCard img {
+            width: 100%;
+            max-width: 254px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+
+/* кнопки подсчета начало */
+        .incrementBtn-group {
+            
+            height: 28px;
+            width: 77px;           
+        }
+
+        .incrementBtn-group span {
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .incrementBtn-group .num {
+            pointer-events: none;
+        }
+/* кнопки подсчета конец */
+        .dayCount {
+            text-align: end;
+        }
+
+        .desc {
+            width: 100%;
+            max-width: 243px;
+        }
+
+        .desc p {
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 400;
+            margin-bottom: 0;
+            color: #757575;
+            padding-top: 10px;
+        }
+              
+        .addBtn {
+            font-size: 1em;
+            font-family: "Inter", sans-serif;
+            text-decoration: none;
+            font-weight: 500;
+            color: #E23D2A;
+            border-bottom: 1px dashed  #E23D2A;
+            border-style:dashed solid;
+            height: 35px;
+        }
+        .checkboxRow{
+            padding-left: 20px;
+        }
+        /* basket card start */
+        .basket{
+            border:2px solid #de210b;
+            border-radius:12px;
+            padding: 3vw;
+          
+        }
+        .basket h4{
+            font-size: 18px;
+            line-height: 28px;
+        }
+        .basket p{
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 400;
+            margin-bottom: 0;
+            color: #757575;
+            padding-top: 0px;
+            /* display: inline-block; */
+        }
+        .basket .myBtn{
+            border:1px solid #ffffff;
+        }
+        .item h4{
+            font-size: 22px;
+            line-height: 24px;
+        }
+        .delBtn{
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 400;
+            border:0;
+            background:0;
+            color: #757575;
+        }
+        .submit-section{
+            background-color:#de210b;
+            color:#ffffff;
+            padding: 20px;
+            border-radius:12px;           
+            width: 100%;
+            margin: 0 auto;
+
+        }
+        .submit-section p{
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #ffffff;
+          
+        }
+        .submit-data-p a{
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #ffffff;
+        }
+        .myForm-check.submit .form-check-input{
+            border:1px solid #ffffff; 
+
+        }
+        .myForm-check.submit .form-check-input:checked{
+            border:1px solid #ffffff; 
+
+        }
+        /* basket card end */
+        /* кастомные радио-кнопки начало */
+        .form-check-label{
+            cursor: pointer;
+        }
+        .real-radio{
+            width: 0;
+            height: 0;
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+        .custom-radio{
+            display: inline-block;
+            margin-right: 11px;
+            vertical-align: text-top; 
+            position: relative;
+            width: 20px;
+            height: 20px;            
+            background: #FFFFFF;
+            border: 1.5px solid #DE210B;
+            border-radius: 10px;   
+
+        }
+        .custom-radio::before{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            content:"";
+            width: 10px;
+            height: 10px;
+            border-radius:50%;
+            background: #DE210B;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        .real-radio:checked + .custom-radio::before{
+            display: block;
+        }
+          /* кастомные радио-кнопки конец */
+        @media all and (max-width: 640px) {
+            .desc {
+                width: 100%;
+                max-width: 100%;
+            }
+           
+        }
+        @media all and (max-width: 760px) {
+            .dayCount {
+            text-align: start;
+        }
+        .addBtn{
+            font-size: 14px;
+        }
+        .myBtn{
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        .submit-section h2{
+           font-size: 18px;
+
+        }
+        .basket-head{
+            display: none;
+            height: 0;
+            opacity: 0;
+        }
+        
+        }
+        @media all and (max-width: 990px) {
+        .basket h4{
+        
+            line-height: 25px;
+        }
+        .basket p{
+            font-size: 12px;
+            line-height: 16px;
+            
+            padding-top: 5px;
+        }
+        .delBtn{
+            font-size: 12px;
+            line-height: 16px;
+           
+        }
+        .incrementBtn-group  {
+           height: 31px;
+        }
+        .incrementBtn-group span {
+           
+            font-size: 14px;
+        }
+        .submit-section p{
+            margin-bottom: 20px;
+          
+        }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- начало формы -->
+    <div class="container myContainer">
+        <form method="get" action="https://shop.krasnayapolyanaresort.ru/index.php?route=rentservice/index">
+            <input type="hidden" name="route" value="rentservice/index">
+            <div class="row gy-1">
+                <div class="col-sm-12 col-md-6">
+                    <h3 class="general"> Выберите даты аренды:</h3>
+                    <div class="container myContainer">
+                        <div class="row d-flex justify-content-start">
+                            <div class="form-group col">
+
+                                <label for="start" class="form_label">Начало аренды</label> <br>
+
+                                <input class="myInput" type="date" id="start" name="trip-start" value="2022-12-22" min="2023-01-01"
+                                    max="2023-05-31">
+                                <!-- оставила ваш инпут с его данными,  -->
+                                <!-- <label for="date_from">Начало аренды:</label>
+                            <input class="form-control date_input" type="text" name="date_from" value="" > -->
+                            </div>
+                            <div class="form-group col">
+                                <label for="end" class="form_label">Завершение аренды</label> <br>
+
+                                <input class="myInput" type="date" id="end" name="trip-start" value="2022-12-22" min="2023-01-01"
+                                    max="2023-05-31">
+                                <!-- <label for="date_to">Завершение аренды:</label>
+                                <input class="form-control date_input" type="text" name="date_to" value=""> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <h3 class="general"> Выберите прокат:</h3>
+                    <div class="container myContainer">
+                        <div class="row ">
+                            <div class="form-group  col-sm-12 col-md-12 ">
+                                <div class="selectWrap">
+                                     <label for="place" class="form_label" aria-label="dropdownMenuButton">Название проката</label>
+                                        <select class="form-control " name="place" value="Пункт проката 1">
+                                            <option value="Пункт проката 1" selected="">Пункт проката 1</option>
+                                            <option value="Пункт проката 2">Пункт проката 2</option>
+                                            <option value="Пункт проката 3">Пункт проката 3</option>
+                                            <option value="Пункт проката 4">Пункт проката 4</option>
+                                            <option value="Пункт проката 5">Пункт проката 5</option>
+                                           
+                                        </select>
+                                </div>
+                               
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row gy-3 d-flex align-items-end">
+
+                <div class="col-sm-12 col-md-6 ">
+                    <div class="container myContainer">
+                        <div class="row ">
+                            <div class="col col-md-6 mt-3">
+                                <button type="submit" class="btn myBtn" value="Найти">Найти</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <!-- конец формы -->
+    <!-- начало каталога -->
+    <div class="catalog container mt-5 myContainer">
+        <div class="mt-3 row checkboxRow d-flex align-items-center">
+            <div class="form-group col-sm-6 col-md-2">
+                <label class="d-flex align-items-center flex-nowrap">
+                    <input type="radio" name="categories" id="" value="skis" class="real-radio">
+                    <span class="custom-radio"></span>
+                     лыжи
+
+                </label>
+                
+            </div>
+            <div class="form-group col-sm-6 col-md-2">
+                <label class="d-flex align-items-center flex-nowrap">
+                    <input type="radio" name="categories" id="" value="snowboard" class="real-radio"> 
+                    <span class="custom-radio"></span>
+                    сноуборд
+                </label>
+                
+            </div>
+
+            <div class=" col-sm-12 col-md-8">
+                <p class="dayCount mt-3"> Общее количество дней проката: 1</p>
+
+            </div>
+        </div>
+        <div class="row gy-1 mt-5">
+            <div class="myCard">
+                <div class="col">
+                    <form action="">
+                        <div class="container">
+                            <div class="row gy-1">
+                                <div class="col-md-3">
+                                    <img src="img/img1.png" alt="комплект">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Комлект для взрослых</h4>
+                                    <p>Включены горные лыжи, ботинки, палки</p>
+                                    <div class="container">
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat1" id="" value="Beginner" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Beginner
+                                        
+                                                        </label>
+                                                        
+                                                    </div>
+
+                                                    <h4>750 руб.</h4>
+                                                </div>
+                                                <p>Комплект Beginner подойдет для начинающих и комфортного катания без
+                                                    спешки.</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat1" id="" value="Advansed" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Advansed
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>950 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat1" id="" value="Master" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Master
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>1 600 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-md-8 d-flex justify-content-center">
+                                    <button type="button" class="btn  addBtn" value="Найти">Добавить ещё комплект</button>
+
+                                </div>
+                                <div class="col-md-4 d-flex  justify-content-end">
+                                    <button type="submit" class="btn myBtn" value="Найти">Добавить в
+                                        корзину</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-1 mt-2">
+            <div class="myCard">
+                <div class="col">
+                    <form action="">
+                        <div class="container">
+                            <div class="row gy-1">
+                                <div class="col-md-3">
+                                    <img src="img/img2.png" alt="комплект">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Сноуборд для взрослых</h4>
+                                    <div class="container">
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat2" id="" value="Beginner" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Beginner
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>750 руб.</h4>
+                                                </div>
+                                                <p>Комплект Beginner подойдет для начинающих и комфортного катания без
+                                                    спешки.</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                  
+                                                    <div class="form-group  col-md-6">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select> 
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-6">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat2" id="" value="Advansed" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Advansed
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>950 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                   
+                                                    <div class="form-group  col-md-6">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-6">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat2" id="" value="Master" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Master
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>1 600 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                   
+                                                    <div class="form-group  col-md-6">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-6">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-md-8 d-flex justify-content-center">
+                                    <button type="button" class="btn  addBtn" value="Добавить ещё комплект">Добавить ещё комплект</button>
+
+                                </div>
+                                <div class="col-md-4 d-flex  justify-content-end">
+                                    <button type="submit" class="btn myBtn" value="Добавить в корзину">Добавить в корзину</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-1 mt-2">
+            <div class="myCard">
+                <div class="col">
+                    <form action="">
+                        <div class="container">
+                            <div class="row gy-1">
+                                <div class="col-md-3">
+                                    <img src="img/img3.png" alt="комплект">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Ботинки для взрослых</h4>
+
+                                    <div class="container">
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat3" id="" value="Beginner" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Beginner
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>750 руб.</h4>
+                                                </div>
+                                                <p>Комплект Beginner подойдет для начинающих и комфортного катания без
+                                                    спешки.</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  ">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat3" id="" value="Advansed" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Advansed
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>950 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group ">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat3" id="" value="Master" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Master
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>1 600 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  ">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-md-8 d-flex justify-content-center">
+                                    <button type="button" class="btn  addBtn" value="Добавить ещё комплект">Добавить ещё комплект</button>
+
+                                </div>
+                                <div class="col-md-4 d-flex  justify-content-end">
+                                    <button type="submit" class="btn myBtn" value="Добавить в корзину">Добавить в корзину</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row gy-1 mt-2">
+            <div class="myCard">
+                <div class="col">
+                    <form action="">
+                        <div class="container">
+                            <div class="row gy-1">
+                                <div class="col-md-3">
+                                    <img src="img/img4.png" alt="комплект">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Шлем</h4>
+
+                                    <div class="container">
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat4" id="" value="Beginner" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Beginner
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>750 руб.</h4>
+                                                </div>
+                                                <p>Комплект Beginner подойдет для начинающих и комфортного катания без спешки.</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  ">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-8 d-flex justify-content-center">
+                                    <button type="button" class="btn  addBtn" value="Добавить в комплект">Добавить ещё комплект</button>
+
+                                </div>
+                                <div class="col-md-4 d-flex  justify-content-end">
+                                    <button type="submit" class="btn myBtn" value="Добавить в корзину">Добавить в корзину</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row gy-1 mt-2">
+            <div class="myCard">
+                <div class="col">
+                    <form action="">
+                        <div class="container">
+                            <div class="row gy-1">
+                                <div class="col-md-3">
+                                    <img src="img/img1.png" alt="комплект">
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Комлект для детей</h4>
+                                    <p>Включены горные лыжи, ботинки, палки</p>
+                                    <div class="container">
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat5" id="" value="Beginner" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                             Beginner
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>750 руб.</h4>
+                                                </div>
+                                                <p>Комплект Beginner подойдет для начинающих и комфортного катания безспешки.</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="row mt-3 d-flex justify-content-between">
+                                            <div class="desc col-md-4 ">
+
+                                                <div class="d-flex justify-content-between lign-items-center">
+                                                    <div class="myForm-check d-flex flex-row-reverse align-items-center">
+                                                        <label>
+                                                            <input type="radio" name="cat5" id="" value="Advansed" class="real-radio">
+                                                            <span class="custom-radio"></span>
+                                                            Advansed
+                                        
+                                                        </label>
+                                                    </div>
+
+                                                    <h4>950 руб.</h4>
+                                                </div>
+                                                <p>Популярный набор снаряжения для катания прошлого сезона</p>
+
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="size" class="form_label">Размер ботинок:</label>
+                                                        <select class="form-control" name="size" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="weight" class="form_label">Вес:</label>
+                                                        <select class="form-control" name="weight" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group  col-md-4">
+                                                        <div class="selectWrap">
+                                                        <label for="tall" class="form_label">Рост:</label>
+                                                        <select class="form-control" name="tall" value="1">
+                                                            <option value="1" selected="">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                          
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-md-8 d-flex justify-content-center">
+                                    <button type="button" class="btn  addBtn" value="Добавить ещё комплект">Добавить ещё комплект</button>
+                                    
+                                </div>
+                                <div class="col-md-4 d-flex  justify-content-end">
+                                    <button type="submit" class="btn myBtn" value="Добавить в корзину">Добавить в корзину</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container myContainer mt-5">
+        <div class="row">
+            <div class="basket">
+                <form action="">
+                    <div class="row">
+                        <h2>Вы выбрали:</h2>
+                    </div>
+                    <div class="row d-flex align-items-start basket-head">
+                        <div class="col-md-3 col-sm-12">
+                            
+                        <p>Наименование</p>
+                        
+                        
+                        </div>
+                        <div class="col-md-5  col-sm-12">
+                            <div class="container">
+                                <div class="row d-flex align-items-start">
+                                    <div class="col-6"><p>Тариф</p></div>
+                                    <div class="col-6"><p>Количество</p></div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <!-- <div class="col-md-2  col-sm-12">
+                        <p>Количество</p>
+                        
+                        </div> -->
+                        <div  class="col-md-3  col-sm-12">
+                        <p>Сумма</p> 
+                        
+                        </div>
+                        <div  class="col-md-2  col-sm-12">
+                            <p>&nbsp;</p>
+                        
+                        </div>
+                    </div>
+                    <div class="row d-flex mt-3 align-items-start ">
+                        <div class="col-md-3  col-sm-12">
+                        
+                        <div class="item">
+                            <h4><b>Сноуборд для детей</b></h4> 
+                            <p>рост 173, вес 50</p>
+                        </div>
+                        
+                        
+                        </div>
+                        <div class="col-md-5  col-sm-12">
+                            <div class="container">
+                                <div class="row d-flex align-items-start">
+                                    <div class="col-6"><h4>Beginner</h4></div>
+                                    <div class="col-6"><div class="incrementBtn-group d-flex align-items-center justify-content-center">
+                                        <span class="minus">-</span>
+                                        <span class="num">1</span>
+                                        <span class="plus">+</span>
+                                    </div></div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                       
+                        
+                        <div  class="col-md-2 col-sm-12">
+                        
+                        
+                        <h4>1 100 руб.</h4>
+                        </div>
+                        <div  class="col-md-1 col-sm-12">
+                            
+                            
+                            <button class="delBtn">удалить</button>
+                        </div>
+                    </div>
+                    <div class="row d-flex mt-4">
+                        <div class="col-md-3 col-sm-12">
+                        
+                        <div class="item">
+                            <h4><b>Комплект для детей</b> </h4> 
+                            <p>рост 173, вес 50</p>
+                        </div>
+                        
+                        </div>
+                        <div class="col-md-5  col-sm-12">
+                            <div class="container">
+                                <div class="row d-flex align-items-start">
+                                    <div class="col-6"><h4>Beginner</h4></div>
+                                    <div class="col-6"><div class="incrementBtn-group d-flex align-items-center justify-content-center">
+                                        <span class="minus">-</span>
+                                        <span class="num">1</span>
+                                        <span class="plus">+</span>
+                                    </div></div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                       
+                        
+                        
+                        <div  class="col-sm-12 col-md-2 ">
+                        <h4>1 100 руб.</h4>
+                        </div>
+                        <div  class="col-sm-12 col-md-1"> 
+                            <button class="delBtn">удалить</button>
+                        </div>
+                    </div>
+                    <div class="row submit-section mt-5">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="col-6 d-flex flex-wrap justify-content-between">
+                                    <h2>Итого:</h2> 
+                                    <h2>3 150 руб.</h2> 
+                                </div>
+                                <div class="col-6"> &nbsp;</div>
+                            </div>
+                           <div class="row mt-3">
+                                <div class="col-md-12 col-lg-6 justify-content-start">
+                                    <div class="myForm-check submit d-flex flex-column justify-content-start align-items-start ">
+                                        <input class="form-check-input myCheckBox" type="checkbox"
+                                        value="" id="submit-data">
+                                        <label class="form-check-label" for="submit-data">
+                                            <p class="submit-data-p">Нажимая кнопку «Оплатить», вы соглашаетесь с <a href="http://">Пользовательским соглашением</a> </p>
+                                        </label>
+                                       
+                                    </div>
+                                </div>                               
+                                <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
+                                    <button type="submit" class="btn myBtn" value="Оплатить">Оплатить</button>                                   
+                                </div>
+                           </div>
+                          
+                        </div>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- скрипты написала  для себя можно их не использовать, если они плохие) -->
+    <script>
+        //лыжи/сноуборд toggle button
+        var Btn = document.getElementById('Btn');
+
+        function leftClick() {
+            Btn.style.left = '0';
+
+        }
+
+        function rightClick() {
+
+            Btn.style.left = '110px';
+        }
+        //increment btn function 
+
+        var pluses = document.querySelectorAll('.plus');
+        for (var i = 0; i < pluses.length; i++) {
+            let count = 1;
+            pluses[i].onclick = function (e) {
+
+                let t = e.target;
+                let parent = t.parentElement;
+                let num = parent.querySelector('.num');
+                count++;
+                // count = (count < 10) ? "0" + count : count;
+                num.innerText = count;
+
+            }
+        }
+        var minuses = document.querySelectorAll('.minus');
+        for (var i = 0; i < minuses.length; i++) {
+
+            minuses[i].onclick = function (e) {
+
+                let t = e.target;
+                let parent = t.parentElement;
+                let num = parent.querySelector('.num');
+                let count = num.innerText;
+                if (count > 1) {
+                    count--;
+                    // count = (count < 10) ? "0" + count : count;
+                    num.innerText = count;
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
